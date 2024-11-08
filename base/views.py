@@ -202,3 +202,19 @@ def updateUser(request):
 
     context = {'form': form}
     return render(request, 'base/update_user.html', context)
+
+
+
+# Mobile Views
+
+def topicPage(request):
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    topics = Topic.objects.filter(name__icontains=q)
+    context = {'topics': topics}
+    return render(request, 'base/topics.html', context)
+
+
+def activityPage(request):
+    room_messages = Message.objects.all()
+    context = {'room_messages': room_messages}
+    return render(request, 'base/activity.html', context)
