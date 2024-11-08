@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="room-container">
+        <h3>--Single Room</h3>
+    </div>
+
+    <div id="rooms-container">
+        <h3>------ Testing the Django REST APIs --------</h3>
+    </div>
+</body>
+
+<!-- APIs -->
+<!-- http://127.0.0.1:8000/api/
+http://127.0.0.1:8000/api/rooms/
+http://127.0.0.1:8000/api/rooms/:id -->
+
+<script>
+    let rooms_container_id = document.getElementById('rooms-container')
+    let room_container_id = document.getElementById('room-container')
+
+    const getRooms = async () => {
+        const response = await fetch('http://127.0.0.1:8000/api/rooms/')
+        const rooms = await response.json()
+        console.log(rooms)
+
+        for(let i=0; i<rooms.length; i++){
+            let room = rooms[i]
+            let row = `<div>
+                        <h3>${room.name}</h3>
+                        </div>`
+            rooms_container_id.innerHTML += row 
+        }
+    } 
+    getRooms()
+
+    const getRoom = async () => {
+        const response = await fetch('http://127.0.0.1:8000/api/rooms/1/')
+        const room = await response.json()
+        // console.log(room)
+        room_container_id.innerHTML += `<h3>${room.name}</h3>`
+    }
+    getRoom()
+</script>
+</html>
