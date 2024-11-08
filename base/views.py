@@ -96,6 +96,15 @@ def room(request, pk):
     context = {'room' : room, 'room_messages': room_messages, 'participants':participants}
     return render(request, 'base/room.html', context)
 
+def userProfile(request, pk):
+    user = User.objects.get(id=pk)
+    rooms = user.room_set.all()
+    room_messages = user.message_set.all()
+    topics = Topic.objects.all()
+
+    context = {'user' : user, 'rooms': rooms, 'room_messages': room_messages, 'topics': topics}
+    return render(request, 'base/profile.html', context)
+
 # ---- CRUD Operations ------ 
 # request.POST contains QueryDict like <QueryDict: {'csrfmiddlewaretoken': ['jt9k985UO5y13ym1z8Zy3oU6dvdaqZhj6BygNz1qfYyh9CaxP25PF4lMJDNwRtem'], 'host': ['1'], 'topic': ['3'], 'name': ['Data base'], 'description': ['']}>
 @login_required(login_url='/login/')
