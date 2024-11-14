@@ -1,7 +1,8 @@
-<div class="activities">
+<div class="activities ">
   <div class="activities__header">
     <h2>Recent Activities</h2>
   </div>
+  <div class="layout__scroll">
   {% for message in room_messages %}
   <div class="activities__box">
     <div class="activities__boxHeader roomListRoom__header">
@@ -37,6 +38,7 @@
     </div>
   </div>
   {% endfor %}
+</div>
 </div>
 
 

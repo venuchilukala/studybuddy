@@ -245,7 +245,7 @@ a {
 }
 
 .mobile-menu {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .mobile-menuItems {
@@ -253,9 +253,10 @@ a {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-top: 2rem;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
   .mobile-menu {
     display: none;
   }
@@ -1166,7 +1167,18 @@ a {
 
 /* Newly Added */
 
-.layout__scroll{
+.layout__scroll {
   overflow: auto;
-  max-height: 75vh;
+  max-height: 85vh;
+}
+
+.layout__scroll::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: rgb(41, 41, 46);
+  display: none;
+}
+
+.layout__scroll::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: var(--color-gray);
 }
