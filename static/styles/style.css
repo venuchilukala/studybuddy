@@ -462,6 +462,10 @@ a {
 
 .layout__body {
   margin: 3rem;
+
+  overflow: auto;
+  max-height: 45rem;
+  scrollbar-width: none;
 }
 
 @media screen and (max-width: 900px) {
@@ -1170,6 +1174,7 @@ a {
 .layout__scroll {
   overflow: auto;
   max-height: 85vh;
+  scrollbar-width: none;
 }
 
 .layout__scroll::-webkit-scrollbar {
