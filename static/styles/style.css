@@ -799,6 +799,7 @@ a {
 
 .create-room.layout .layout__box {
   max-width: 68rem;
+  max-height: 80vh;
 }
 
 /*==============================
@@ -1173,7 +1174,7 @@ a {
 
 .layout__scroll {
   overflow: auto;
-  max-height: 85vh;
+  max-height: 75vh;
   scrollbar-width: none;
 }
 
@@ -1186,4 +1187,8 @@ a {
 .layout__scroll::-webkit-scrollbar-thumb {
   border-radius: 1rem;
   background-color: var(--color-gray);
+}
+
+.roomList .layout__scroll{
+  max-height: 72vh;
 }
