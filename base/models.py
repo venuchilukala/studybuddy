@@ -11,7 +11,7 @@ class User(AbstractUser):
     avatar = ResizedImageField(size=[600, 600], quality=85, null=True, default="avatar.svg")
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username'] #For createsuperuser using username
 
   
 
