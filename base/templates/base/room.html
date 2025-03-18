@@ -73,7 +73,7 @@
           <span class="room__topics">{{room.topic}}</span>
         </div>
         <div class="room__conversation">
-          <div class="threads scroll">
+          <div class="threads scroll" id="chat-container">
 
             {% for message in room_messages %}
             <div class="thread">
@@ -112,12 +112,23 @@
           </div>
         </div>
       </div>
+      {% if request.user.is_authenticated %}
       <div class="room__message">
         <form action="" method="POST">
           {% csrf_token %}
-          <input name="body" placeholder="Write your message here..." />
+          <div class="room__message_container">
+            <input name="body" placeholder="Write your message here..." />
+            <button style="background: none; border: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#696d97"
+                class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                <path
+                  d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
+              </svg>
+            </button>
+          </div>
         </form>
       </div>
+      {% endif %}
     </div>
     <!-- Room End -->
 
@@ -142,4 +153,10 @@
   </div>
 </main>
 <script src="script.js"></script>
+<script>
+  window.onload = function () {
+    var chatContainer = document.getElementById("chat-container");
+    chatContainer.scrollTop = chatContainer.scrollHeight; // Auto-scroll to the bottom
+  };
+</script>
 {% endblock %}

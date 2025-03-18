@@ -75,19 +75,21 @@ def home(request):
     context = {'rooms': rooms, 'topics': topics, 'rooms_count': rooms_count, 'room_messages': room_messages}
     return render(request, 'base/home.html', context)
 
-
+# @login_required(login_url='/login/')
 def room(request, pk):
     room = Room.objects.get(id=pk)
     # Many to One _set.all()
-    room_messages = room.message_set.all()
+    room_messages = room.message_set.all().order_by('created')
     # Many to mant .all
     participants = room.participants.all()
 
     if request.method == 'POST':
-        message = Message.objects.create(
+        body = request.POST.get('body')
+        if body:
+            message = Message.objects.create(
             user = request.user,
             room = room,
-            body = request.POST.get('body')
+            body = body 
         )
         room.participants.add(request.user)
         return redirect('room', pk=room.id)

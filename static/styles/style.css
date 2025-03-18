@@ -200,12 +200,12 @@ a {
 
 .scroll::-webkit-scrollbar {
   width: 0.6rem;
-  background-color: rgb(41, 41, 46);
+  /* background-color: rgb(41, 41, 46); */
 }
 
 .scroll::-webkit-scrollbar-thumb {
   border-radius: 1rem;
-  background-color: var(--color-gray);
+  /* background-color: var(--color-gray); */
 }
 
 .dropdown-menu {
@@ -1113,7 +1113,7 @@ a {
   background: transparent;
 }
 
-.room__message > form > input {
+.room__message > form > div > input {
   resize: none;
   background-color: var(--color-dark-light);
   color: var(--color-light);
@@ -1121,7 +1121,7 @@ a {
   outline: none;
   border-radius: 0.7rem;
   height: 4.5rem;
-  width: 100%;
+  width: 95%;
   margin-top: -1rem;
   padding: 1.2rem;
   font-size: 1.4rem;
@@ -1129,7 +1129,14 @@ a {
   position: relative;
 }
 
-.room__message > form > input::placeholder {
+.room__message_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.room__message > form > div > input::placeholder {
   color: var(--color-light-gray);
 }
 
@@ -1180,13 +1187,13 @@ a {
 
 .layout__scroll::-webkit-scrollbar {
   width: 0.6rem;
-  background-color: rgb(41, 41, 46);
+  /* background-color: rgb(41, 41, 46); */
   display: none;
 }
 
 .layout__scroll::-webkit-scrollbar-thumb {
   border-radius: 1rem;
-  background-color: var(--color-gray);
+  /* background-color: var(--color-gray); */
 }
 
 .roomList .layout__scroll{
